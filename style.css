@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 0%, #1b2450 0%, #0a0e1c 45%, #05070f 100%);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: #e6ecff;
+    user-select: none;
+  }
+  
+  .game {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+  }
+  
+  /* ---------- Игровое поле ---------- */
+  .board-wrap {
+    position: relative;
+    line-height: 0;
+  }
+  
+  #board {
+    display: block;
+    height: min(600px, 76vh);
+    width: auto;
+    border-radius: 14px;
+    background: #070a16;
+    box-shadow:
+      0 0 0 2px rgba(120, 160, 255, 0.25),
+      0 20px 60px rgba(0, 0, 0, 0.65),
+      0 0 70px rgba(80, 140, 255, 0.15);
+  }
+  
+  /* ---------- Оверлей ---------- */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px;
+    text-align: center;
+    background: rgba(6, 10, 22, 0.84);
+    backdrop-filter: blur(5px);
+    border-radius: 14px;
+    transition: opacity 0.25s ease;
+  }
+  
+  .overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .overlay h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #22d3ee, #a855f7, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .overlay p {
+    margin: 0;
+    max-width: 220px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #9fb0d8;
+  }
+  
+  .overlay button {
+    margin-top: 6px;
+    padding: 11px 30px;
+    font: inherit;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #05070f;
+    background: linear-gradient(180deg, #7dd3fc, #38bdf8);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  
+  .overlay button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(56, 189, 248, 0.5);
+  }
+  
+  .overlay button:active {
+    transform: translateY(0);
+  }
+  
+  /* ---------- Панель ---------- */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 150px;
+  }
+  
+  .box {
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(140, 175, 255, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  
+  .label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7f90b8;
+    margin-bottom: 4px;
+  }
+  
+  .value {
+    font-size: 24px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: #d9e6ff;
+  }
+  
+  #next,
+  #hold {
+    display: block;
+    margin: 2px auto 0;
+    width: 100%;
+    height: auto;
+    max-width: 110px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.28);
+  }
+  
+  .help {
+    font-size: 11.5px;
+    line-height: 1.85;
+    color: #7f90b8;
+  }
+  
+  .help b {
+    display: inline-block;
+    min-width: 62px;
+    color: #b9c8ea;
+    font-weight: 600;
+  }
+  
+  /* ---------- Адаптив ---------- */
+  @media (max-width: 700px) {
+    body {
+      padding: 12px;
+    }
+  
+    .game {
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+  
+    #board {
+      height: min(600px, 62vh);
+    }
+  
+    .panel {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 420px;
+    }
+  
+    .box {
+      flex: 1 1 auto;
+      min-width: 88px;
+      text-align: center;
+    }
+  
+    .help {
+      display: none;
+    }
+  }
