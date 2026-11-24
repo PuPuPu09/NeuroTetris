@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тетрис</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game">
+  <div class="board-wrap">
+    <canvas id="board" width="300" height="600"></canvas>
+
+    <div id="overlay" class="overlay">
+      <h2 id="overlay-title">Тетрис</h2>
+      <p id="overlay-text">Стрелки — движение, вверх — поворот</p>
+      <button id="overlay-btn">Играть</button>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <div class="box">
+      <div class="label">Счёт</div>
+      <div class="value" id="score">0</div>
+    </div>
+
+    <div class="box">
+      <div class="label">Уровень</div>
+      <div class="value" id="level">1</div>
+    </div>
+
+    <div class="box">
+      <div class="label">Линии</div>
+      <div class="value" id="lines">0</div>
+    </div>
+
+    <div class="box">
+      <div class="label">Далее</div>
+      <canvas id="next" width="120" height="120"></canvas>
+    </div>
+
+    <div class="box">
+      <div class="label">Запас</div>
+      <canvas id="hold" width="120" height="120"></canvas>
+    </div>
+
+    <div class="help">
+      <div><b>← →</b> движение</div>
+      <div><b>↑ / X</b> поворот</div>
+      <div><b>Z</b> поворот назад</div>
+      <div><b>↓</b> ускорить</div>
+      <div><b>Пробел</b> сброс</div>
+      <div><b>C</b> в запас</div>
+      <div><b>P</b> пауза</div>
+    </div>
+  </aside>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
